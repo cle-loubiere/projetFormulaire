@@ -1,6 +1,7 @@
 import React from 'react'
 import propTypes  from 'prop-types'
 import isEmpty from 'lodash/isEmpty'
+import {Redirect} from "react-router-dom"
 /*
 Formulaire d'inscription
 */
@@ -11,7 +12,8 @@ class SignupForm extends React.Component{
             email : "", //field email
             password : "", //field password
             passwordConfirmation : "", //field password conformation
-            isLoading:false  //do not send multiple time the form
+            isLoading:false,  //do not send multiple time the form
+            redirect:false
         }
         this.onChange = this.onChange.bind(this)
         this.onSubmit = this.onSubmit.bind(this)
@@ -22,8 +24,11 @@ class SignupForm extends React.Component{
         e.preventDefault()
         this.props.userSignupRequest({  email:this.state.email,
                                         password:this.state.password,
-                                        passwordConfirmation:this.passwordConfirmation
-                                    })
+                                        passwordConfirmation:this.state.passwordConfirmation
+                                    }).then(
+                                        (res)=>this.setState({redirect:true}),
+                                        (err)=>this.setState({isLoading:false})
+                                    )
     }
 
     //appelé pour mettre à jour le state
@@ -32,6 +37,9 @@ class SignupForm extends React.Component{
     }
 
     render() {
+        if(this.state.redirect){
+            return <Redirect to="/" />
+        }
         return(
             <form className='col-4 offset-4' onSubmit={this.onSubmit}>
                 <div className="form-group">

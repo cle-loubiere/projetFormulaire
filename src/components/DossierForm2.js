@@ -116,7 +116,7 @@ class DossierForm2 extends React.Component{
                 <div className="form-group">
                     <label className="control-label">Etudes</label>
                     <ReactDataGrid
-                        enableCellSelect={true}
+                        enableCellSelect={!this.props.etat}
                         onGridRowsUpdated={this.props.arrayEtudeChange}
                         rowsCount={5}
                         rowGetter={i =>this.props.arrayEtude[i]}
@@ -129,7 +129,7 @@ class DossierForm2 extends React.Component{
                 <div className="form-group">
                     <label className="control-label">Langues</label>
                     <ReactDataGrid
-                        enableCellSelect={true}
+                        enableCellSelect={!this.props.etat}
                         onGridRowsUpdated={this.props.arrayLangueChange}
                         rowsCount={4}
                         rowGetter={i =>this.props.arrayLangue[i]}

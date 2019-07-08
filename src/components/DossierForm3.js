@@ -8,7 +8,6 @@ Page 3 du formulaire
 */
 class DossierForm3 extends React.Component{
     render() {
-        //const {userSignupRequest} = this.props
         return(
             <div >
                 <div className='col-md-4'></div>

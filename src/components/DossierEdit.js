@@ -175,7 +175,7 @@ class DossierEdit extends React.Component{
         }
 
         const isAdmin = this.props.auth.user.role ==="admin"?true:false
-        const userButton = <button className="btn btn-success btn-lg" onClick={this.submitForm}>Sauvegarder</button>
+        const userButton = <button disabled={this.state.etatDossier==="ouvert"?false:true} className="btn btn-success btn-lg" onClick={this.submitForm}>Sauvegarder</button>
         const adminButton = 
             <div >
                 <button disabled={this.state.isLoading || this.state.etatDossier !== "en cours d'instruction"} className="btn btn-success btn-lg" onClick={()=>this.instruire("rejeté")}>Rejeter</button>
