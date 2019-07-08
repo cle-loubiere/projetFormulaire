@@ -1,0 +1,10 @@
+{
+    "env":{
+        "PORT":"",
+        "MONGODBCONNECTSTRING":"",
+        "JWTPRIVATEKEY":"",
+        "EMAILADMIN":"",
+        "PWDADMIN":""
+    }
+}
+
